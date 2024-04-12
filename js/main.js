@@ -1,3 +1,6 @@
+// test
+console.log("Test OK");
+
 const images = [
   {
     image: "img/01.webp",
@@ -25,3 +28,30 @@ const images = [
     text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
   },
 ];
+
+// catturo il container
+const carouselContainer = document.querySelector(".my-carousel-images");
+
+// genero gli elementi
+images.forEach((curImage) => {
+  carouselItem = `
+      <div class="my-carousel-item" carousel-item="1">
+        <img
+          class="img-fluid"
+          src="./${curImage.image}"
+          alt="${curImage.title}"
+        />
+        <div class="item-description px-3">
+          <h2>${curImage.title}</h2>
+          <p>${curImage.text}</p>
+        </div>
+      </div>
+  `;
+  carouselContainer.innerHTML += carouselItem;
+});
+
+// imposto l'immagine di partenza
+const slidesElem = document.querySelectorAll(".my-carousel-item");
+
+let activeIndex = 0;
+slidesElem[activeIndex].classList.add("active");
