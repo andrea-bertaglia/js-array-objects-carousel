@@ -29,10 +29,12 @@ const images = [
   },
 ];
 
-// catturo il container
+// catturo il container delle immagini
 const carouselContainer = document.querySelector(".my-carousel-images");
+// catturo il container delle thumbnail
+const thumbnailsContainer = document.querySelector(".my-thumbnails");
 
-// genero gli elementi
+// genero gli elementi (card e thumbnails)
 images.forEach((curImage) => {
   carouselItem = `
       <div class="my-carousel-item" carousel-item="1">
@@ -47,7 +49,17 @@ images.forEach((curImage) => {
         </div>
       </div>
   `;
+
+  thumbnailsItem = `
+  <img
+  class="img-fluid my-thumbnail"
+  src="./${curImage.image}"
+  alt="Thumbnail of ${curImage.title}"
+  />
+`;
+
   carouselContainer.innerHTML += carouselItem;
+  thumbnailsContainer.innerHTML += thumbnailsItem;
 });
 
 // imposto l'immagine di partenza
@@ -71,6 +83,11 @@ function goToNext() {
   }
 
   slidesElem[activeIndex].classList.add("active");
+
+  for (let i = 0; i < thumbElem.length; i++) {
+    thumbElem[i].classList.remove("active");
+  }
+  thumbElem[activeIndex].classList.add("active");
 }
 
 // pulsante indietro
@@ -85,4 +102,16 @@ function goToPrevious() {
   }
 
   slidesElem[activeIndex].classList.add("active");
+
+  for (let i = 0; i < thumbElem.length; i++) {
+    thumbElem[i].classList.remove("active");
+  }
+  thumbElem[activeIndex].classList.add("active");
+}
+
+const thumbElem = document.querySelectorAll(".my-thumbnail");
+console.log(thumbElem);
+
+if (activeIndex === 0) {
+  thumbElem[activeIndex].classList.add("active");
 }
