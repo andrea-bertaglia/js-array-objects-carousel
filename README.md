@@ -13,6 +13,18 @@ Dato un array di oggetti letterali con:
 Nel markup allegato rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
 Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva con i relativi titolo e testo diventerà visibile.
 
+### Svolgimento:
+
+- rimuovo i contenuti html
+- catturo il div container
+- per ogni elemento dell'array
+  - creo l'elemento comprensivo di foto e descrizione
+  - aggiungo gli elementi nel DOM
+- gestisco i pulsanti:
+  - imposto l'immagine di partenza
+  - catturo i bottoni
+  - tramite una funzione aggiungo/tolgo la classe active
+
 ## Milestone 2:
 
 Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.

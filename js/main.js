@@ -52,6 +52,37 @@ images.forEach((curImage) => {
 
 // imposto l'immagine di partenza
 const slidesElem = document.querySelectorAll(".my-carousel-item");
-
 let activeIndex = 0;
 slidesElem[activeIndex].classList.add("active");
+
+// gestisco i bottoni
+document.querySelector(".my-next").addEventListener("click", goToNext);
+document.querySelector(".my-previous").addEventListener("click", goToPrevious);
+
+// pulsante avanti
+function goToNext() {
+  slidesElem[activeIndex].classList.remove("active");
+
+  if (activeIndex < images.length - 1) {
+    activeIndex++;
+    console.log(activeIndex);
+  } else {
+    activeIndex = 0;
+  }
+
+  slidesElem[activeIndex].classList.add("active");
+}
+
+// pulsante indietro
+function goToPrevious() {
+  slidesElem[activeIndex].classList.remove("active");
+
+  if (activeIndex !== 0) {
+    activeIndex--;
+    console.log(activeIndex);
+  } else {
+    activeIndex = images.length - 1;
+  }
+
+  slidesElem[activeIndex].classList.add("active");
+}
