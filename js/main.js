@@ -109,9 +109,11 @@ function goToPrevious() {
   thumbElem[activeIndex].classList.add("active");
 }
 
+// gestisco le miniature
 const thumbElem = document.querySelectorAll(".my-thumbnail");
 console.log(thumbElem);
 
+// assegno la miniatura di partenza
 if (activeIndex === 0) {
   thumbElem[activeIndex].classList.add("active");
 }
